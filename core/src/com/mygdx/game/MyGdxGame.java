@@ -34,6 +34,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		brickTexture = new Texture("brick.png");
 		initializeBricks();
 	}
+
 	private void initializeBricks() {
 		int rows = 4; // 벽돌의 행 수
 		int cols = 8; // 벽돌의 열 수
@@ -91,14 +92,15 @@ public class MyGdxGame extends ApplicationAdapter {
 		// 배치 시작
 		batch.begin();
 
-		// 게임 로직 업데이트 (공과 패들의 움직임, 벽돌과의 충돌 감지 포함)
-		checkCollisions();
 		// 렌더링 (벽돌, 패들, 공 그리기)
 		for (int i = 0; i < bricks.length; i++) {
 			if (brickVisible[i]) {
 				batch.draw(brickTexture, bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height);
 			}
 		}
+
+		// 게임 로직 업데이트 (공과 패들의 움직임, 벽돌과의 충돌 감지 포함)
+		checkCollisions();
 
 		// 공과 패들을 그림
 		batch.draw(ballTexture, ball.x, ball.y, ball.width, ball.height);
@@ -108,6 +110,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 
 	}
+
 	private void checkCollisions() {
 		// 공과 벽돌 간의 충돌 감지 로직
 		for (int i = 0; i < bricks.length; i++) {
@@ -118,6 +121,7 @@ public class MyGdxGame extends ApplicationAdapter {
 			}
 		}
 	}
+
 	@Override
 	public void dispose() {
 		// 리소스 정리
