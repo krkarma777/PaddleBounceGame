@@ -57,7 +57,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void render() {
 		// 화면을 깨끗하게 지움
-		ScreenUtils.clear(0, 0, 0, 1);
+		ScreenUtils.clear(1, 1, 1, 1);
 
 		// 공의 위치 업데이트
 		ball.x += ballSpeedX * Gdx.graphics.getDeltaTime();
